@@ -1,0 +1,27 @@
+.title {
+  text-align: center;
+  
+  h1 {
+    font-size: 7.594rem;
+  }
+}
+
+.sites {
+  @include display(flex);
+  @include flex-direction(row);
+  @include align-items(stretch);
+  
+  & > .site {
+    @include flex(1);
+  }
+}
+
+.site {
+  @include padding(null 1em);
+  
+  ul {
+    height: 50vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}

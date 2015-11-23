@@ -1,0 +1,9 @@
+{
+  "name": "city_myles_www",
+  "version": "1.0.0",
+  "devDependencies": {
+    "bourbon": "~4.2.6",
+    "bitters": "~1.1.0",
+    "neat": "~1.7.2"
+  }
+}
