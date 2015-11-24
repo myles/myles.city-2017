@@ -2,10 +2,52 @@
   @include font-size($font-sizes);
 }
 
+@keyframes multicolour {
+  0% {
+    color: $cape-code;
+    fill: $cape-code;
+    stoke: $cape-code;
+  }
+  20% {
+    color: $wild-watermelon;
+    fill: $wild-watermelon;
+    stoke: $wild-watermelon;
+  }
+  40% {
+    color: $fire-bush;
+    fill: $fire-bush;
+    stoke: $fire-bush;
+  }
+  60% {
+    color: $bitter-lemon;
+    fill: $bitter-lemon;
+    stoke: $bitter-lemon;
+  }
+  80% {
+    color: $cerulean;
+    fill: $cerulean;
+    stoke: $cerulean;
+  }
+  100% {
+    color: $cape-code;
+    fill: $cape-code;
+    stoke: $cape-code;
+  }
+}
+
 .page-title {
   @include margin(.5em null);
   
   text-align: center;
+  
+  .logo {
+    @include size(ms(10));
+    
+    * {
+      fill: $base-font-color;
+      stoke: $base-font-color;
+    }
+  }
   
   h1 {
     font-size: ms(10);
@@ -34,6 +76,16 @@
     .char5,
     .char10 {
       color: $cerulean;
+    }
+  }
+  
+  &:hover {
+    h1,
+    .logo * {
+      @include animation-name(multicolour);
+      @include animation-duration(5s);
+      @include animation-timing-function($base-timing);
+      @include animation-iteration-count(infinite);
     }
   }
 }

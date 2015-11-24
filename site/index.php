@@ -48,6 +48,7 @@ $feeds = array(
 	<body>
 		<div class="page">
 			<div class="page-title">
+				<img class="logo" src="/assets/images/toronto.svg">
 				<h1>Myles.City</h1>
 			</div>
 			
@@ -90,11 +91,13 @@ $feeds = array(
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+		<script src="/assets/javascript/svg-injector.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function () {
-				$('.page-title h1').fitText(0.6);
 				$('.page-title h1').lettering();
+				$('.page-title h1').fitText(0.6);
 				$('.site-title h2').fitText(1.4);
+				SVGInjector($('.page-title img'));
 			});
 		</script>
 	</body>
