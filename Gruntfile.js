@@ -50,6 +50,7 @@ module.exports = function (grunt) {
         rsync: {
             options: {
                 exclude: [
+                    "assets/css/style.css.map",
                     "assets/sass",
                     "cache"
                 ],

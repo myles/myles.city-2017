@@ -51,7 +51,7 @@ $feeds = array(
 				<h1>Myles.City</h1>
 			</div>
 			
-			<div class="sites">
+			<div class="site-list">
 				<?php foreach ($feeds as $feed_data => $feed): ?>
 					<?php
 					$pie = new SimplePie();
