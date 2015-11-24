@@ -1,2 +1,2 @@
 include = "{$include,}"
-exclude = "{$exclude,node_modules,bower_components,cache}"
+exclude = "{$exclude,node_modules,bower_components,cache,css}"
