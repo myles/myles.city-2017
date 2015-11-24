@@ -1,3 +1,7 @@
+body {
+  @include font-size($font-sizes);
+}
+
 .page-title {
   @include margin(.5em null);
   
@@ -5,27 +9,47 @@
   
   h1 {
     font-size: ms(10);
+    
     margin: 0;
   }
 }
 
 .sites {
-  @include display(flex);
-  @include flex-flow(row wrap);
-  @include justify-content(space-around);
+  @include media($medium-screen-up) {
+    @include display(flex);
+    @include flex-flow(row wrap);
+    @include justify-content(space-around);
+  }
 }
 
 .site {
-  @include padding(1em);
-  @include scrollbars(.5em, darken($action-color, 30%));
+  @include margin(1em null);
   
-  width: percentage(1/3);
+  @include media($medium-screen-up) {
+    @include padding(1em);
+    @include scrollbars(.5em, darken($action-color, 30%));
+    
+    width: percentage(1/2);
+  }
+  
+  @include media($large-screen-up) {
+    width: percentage(1/3);
+  }
+  
+  @include media($xlarge-screen-up) {
+    width: percentage(1/4);
+  }
   
   .site-title {
-    @include padding(.5em null);
     @include border-top-radius(.5em);
+    @include padding(.5em null);
     
+    text-align: center;
     background: $action-color;
+    
+    @include media($medium-screen-up) {
+      text-align: left;
+    }
     
     h2 {
       @include margin(0 .5em);
@@ -42,12 +66,19 @@
   }
   
   .post-list {
-    height: 50vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
     @include border-color(darken($action-color, 30%));
     @include border-style(solid);
     @include border-width(1px);
+    
+    @include media($medium-screen-up) {
+      height: 25vh;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+    
+    @include media($large-screen-up) {
+      height: 50vh;
+    }
   }
   
   .post {

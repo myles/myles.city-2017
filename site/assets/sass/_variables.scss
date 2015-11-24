@@ -1,9 +1,28 @@
+// Grids
+$small-screen: 480px;
+$medium-screen: 640px;
+$large-screen: 1024px;
+$xlarge-screen: 1280px;
+
+$small-screen-up: new-breakpoint(min-width $small-screen 4/2);
+$medium-screen-up: new-breakpoint(min-width $medium-screen 4*1);
+$large-screen-up: new-breakpoint(min-width $large-screen 4*2);
+$xlarge-screen-up: new-breakpoint(min-width $xlarge-screen 4*3);
+
 // Typography
 $base-font-family: $helvetica;
 $heading-font-family: $base-font-family;
 
 // Font Sizes
-$base-font-size: 17px;
+$base-font-size: 1em;
+
+$font-sizes: (
+  null: 15px,
+  $small-screen: 16px,
+  $medium-screen: 17px,
+  $large-screen: 19px,
+  $xlarge-screen: 20px
+);
 
 // Modular Scale
 $ms-base: $base-font-size;

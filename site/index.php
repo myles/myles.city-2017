@@ -70,7 +70,7 @@ $feeds = array(
 						</div>
 					
 						<div class="post-list">
-						<?php foreach ($pie->get_items() as $item): ?>
+							<?php foreach ($pie->get_items() as $item): ?>
 							<div class="post">
 								<a href="<?php echo $item->get_permalink(); ?>">
 									<span class="post-date">
@@ -91,7 +91,8 @@ $feeds = array(
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function () {
-				$('.title h1').fitText()
+				$('.page-title h1').fitText(0.6);
+				$('.site-title h2').fitText(1.4);
 			});
 		</script>
 	</body>
