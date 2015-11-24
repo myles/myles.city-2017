@@ -89,9 +89,11 @@ $feeds = array(
 		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function () {
 				$('.page-title h1').fitText(0.6);
+				$('.page-title h1').lettering();
 				$('.site-title h2').fitText(1.4);
 			});
 		</script>

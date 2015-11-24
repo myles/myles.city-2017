@@ -9,7 +9,31 @@
   
   h1 {
     font-size: ms(10);
-    
     margin: 0;
+    
+    .char1,
+    .char6 {
+      color: $cape-code;
+    }
+  
+    .char2,
+    .char7 {
+      color: $wild-watermelon;
+    }
+  
+    .char3,
+    .char8 {
+      color: $fire-bush;
+    }
+  
+    .char4,
+    .char9 {
+      color: $bitter-lemon;
+    }
+  
+    .char5,
+    .char10 {
+      color: $cerulean;
+    }
   }
 }
