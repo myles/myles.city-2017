@@ -77,7 +77,7 @@ $feeds = array(
 										<?php echo $item->get_local_date('%e %b %Y'); ?>
 									</span>
 									<span class="post-title">
-										<?php echo $item->get_title(); ?>
+										<?php echo html_entity_decode($item->get_title()); ?>
 									</span>
 								</a>
 							</div>

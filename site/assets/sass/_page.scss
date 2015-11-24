@@ -17,16 +17,27 @@
 
 .site {
   @include padding(1em);
+  @include scrollbars(.5em, darken($action-color, 30%));
   
   width: percentage(1/3);
   
   .site-title {
     @include padding(.5em null);
+    @include border-top-radius(.5em);
+    
     background: $action-color;
     
     h2 {
-      @include margin(0);
+      @include margin(0 .5em);
       font-size: ms(1);
+    }
+    
+    a {
+      color: #fff;
+    }
+    
+    &:hover {
+      background: darken($action-color, 30%);
     }
   }
   
@@ -34,22 +45,31 @@
     height: 50vh;
     overflow-y: scroll;
     overflow-x: hidden;
+    @include border-color(darken($action-color, 30%));
+    @include border-style(solid);
+    @include border-width(1px);
   }
   
   .post {
     @include padding(.5em .5em);
     
-    border-bottom: 1px solid $light-gray;
+    border-bottom: 1px solid darken($action-color, 30%);
     
     &:hover {
+      background-color: $action-color;
       
+      a {
+        color: #fff;
+      }
     }
   }
   
   .post-list > .post {
     &:first-child {
       padding-top: .5em;
-      border-top: 1px solid $light-gray;
+    }
+    &:last-child {
+      border-bottom: none;
     }
   }
   

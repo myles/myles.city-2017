@@ -12,11 +12,14 @@
 @import 'variables';
 
 // Bitters
-@import "buttons";
-@import "forms";
-@import "lists";
-@import "tables";
-@import "typography";
+@import 'buttons';
+@import 'forms';
+@import 'lists';
+@import 'tables';
+@import 'typography';
+
+// Mixins
+@import 'mixins/scrollbar';
 
 // App
 @import 'page';
