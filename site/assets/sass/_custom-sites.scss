@@ -1,22 +1,22 @@
 @each $site, $colour in $site-colours {
   .site-#{$site} {
     @include scrollbars(.5em, darken($colour, 30%));
-  
+    
     .site-title {
       background: $colour;
     }
-  
+    
     .post-list {
       @include border-color(darken($colour, 30%));
     }
-  
+    
     .post {
       border-bottom: 1px solid darken($colour, 30%);
-    
+      
       a {
         color: $colour;
       }
-    
+      
       &:hover {
         background-color: $colour;
       }

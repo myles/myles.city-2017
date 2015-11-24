@@ -15,7 +15,7 @@
 }
 
 .post {
-  @include padding(.5em .5em);
+  @include padding(.5em);
   
   border-bottom: 1px solid darken($action-color, 30%);
   
@@ -39,6 +39,12 @@
   &:last-child {
     border-bottom: none;
   }
+}
+
+.post-image {
+  @include margin(-1em -1em .5em -1em);
+  display: block;
+  height: 5em;
 }
 
 .post-title {

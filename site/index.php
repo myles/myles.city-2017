@@ -53,39 +53,56 @@ $feeds = array(
 			</div>
 			
 			<div class="site-list">
-				<?php foreach ($feeds as $feed_data => $feed): ?>
-					<?php
+				<?php foreach ($feeds as $feed_data => $feed) {
 					$pie = new SimplePie();
 					$pie->enable_cache(true);
 					$pie->set_feed_url($feed[feed_url]);
 					$pie->init();
 					$pie->handle_content_type();
-					?>
+					$feed_url = preg_replace('/&?utm_.+?(&|$)$/', '', $feed[url]);
+					$feed_title = $feed[title];
+				?>
 					<div class="site site-<?php echo $feed_data; ?>">
 						<div class="site-title">
 							<h2>
-								<a href="<?php echo $feed[url]; ?>">
-									<?php echo $feed[title]; ?>
+								<a href="<?php echo $feed_url; ?>">
+									<?php echo $feed_title; ?>
 								</a>
 							</h2>
 						</div>
-					
+						
 						<div class="post-list">
-							<?php foreach ($pie->get_items() as $item): ?>
+						<?php
+						$first = true;
+						foreach ($pie->get_items() as $item) {
+							preg_match('@<img.+src="(.*)".*>@Uims', $item->get_content(), $matches);
+							$image = $matches[1];
+							$title = html_entity_decode($item->get_title());
+							$date = $item->get_local_date('%e %b %Y');
+							$permalink = preg_replace('/&?utm_.+?(&|$)$/', '', $item->get_permalink());
+						?>
 							<div class="post">
-								<a href="<?php echo $item->get_permalink(); ?>">
+								<a href="<?php echo $permalink; ?>">
+									<?php if ($image and $first) { ?>
+									<span class="post-image" style="background-image:url(<?php if ($image and $first) { echo $image; } ?>);"></span>
+									<?php } ?>
 									<span class="post-date">
-										<?php echo $item->get_local_date('%e %b %Y'); ?>
+										<?php echo $date; ?>
 									</span>
 									<span class="post-title">
-										<?php echo html_entity_decode($item->get_title()); ?>
+										<?php echo $title; ?>
 									</span>
 								</a>
 							</div>
-						<?php endforeach; ?>
+						<?php
+							if ($first) {
+								$first = false;
+							}
+						};
+						?>
 						</div>
 					</div>
-				<?php endforeach; ?>
+				<?php }; ?>
 			</div>
 		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
