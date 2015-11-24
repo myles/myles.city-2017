@@ -3,12 +3,15 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         php: {
-            dev: {
+            options: {
+                hostname: '0.0.0.0',
+                port: 4000,
+                base: 'site',
+                keepalive: true
+            },
+            watch: {
                 options: {
-                    hostname: '0.0.0.0',
-                    port: 4000,
-                    base: 'site',
-                    keepalive: true
+                    livereload: true
                 }
             }
         },
@@ -17,7 +20,8 @@ module.exports = function (grunt) {
                 includePaths: [
                     './bower_components/bourbon/app/assets/stylesheets/',
                     './bower_components/bitters/app/assets/stylesheets/',
-                    './bower_components/neat/app/assets/stylesheets/'
+                    './bower_components/neat/app/assets/stylesheets/',
+                    './bower_components/modular-scale/stylesheets/'
                 ],
                 sourceMap: true
             },
@@ -28,18 +32,26 @@ module.exports = function (grunt) {
             }
         },
         watch: {
-            php: {
-                files: ['site/index.php'],
-                tasks: ['php:dev'],
+            sass: {
+                files: ['site/assets/sass/*.scss'],
+                tasks: ['sass:dev'],
+                options: {
+                    livereload: false
+                }
+            },
+            css: {
+                files: ['site/assets/css/*.css'],
+                tasks: [],
                 options: {
                     livereload: true
                 }
-            },
-            sass: {
-                files: ['site/assets/sass/style.scss'],
-                tasks: ['sass:dev'],
+            }
+        },
+        concurrent: {
+            target: {
+                tasks: ['php:watch', 'watch'],
                 options: {
-                    livereload: true
+                    logConcurrentOutput: true
                 }
             }
         }
@@ -47,11 +59,8 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-php');
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', [
-        'sass',
-        'php',
-        'watch'
-    ]);
+    grunt.registerTask('default', ['sass', 'concurrent']);
 };

@@ -4,6 +4,7 @@
   "devDependencies": {
     "bourbon": "~4.2.6",
     "bitters": "~1.1.0",
-    "neat": "~1.7.2"
+    "neat": "~1.7.2",
+    "modular-scale": "~2.1.1"
   }
 }

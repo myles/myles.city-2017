@@ -1,27 +1,67 @@
-.title {
+.page-title {
+  @include margin(.5em null);
+  
   text-align: center;
   
   h1 {
-    font-size: 7.594rem;
+    font-size: ms(10);
+    margin: 0;
   }
 }
 
 .sites {
   @include display(flex);
-  @include flex-direction(row);
-  @include align-items(stretch);
-  
-  & > .site {
-    @include flex(1);
-  }
+  @include flex-flow(row wrap);
+  @include justify-content(space-around);
 }
 
 .site {
-  @include padding(null 1em);
+  @include padding(1em);
+  
+  width: percentage(1/3);
+  
+  h2 {
+    font-size: ms(1);
+  }
   
   ul {
     height: 50vh;
     overflow-y: scroll;
     overflow-x: hidden;
+  }
+  
+  li {
+    @include padding(.5em .5em);
+    
+    background: $action-color;
+    border-bottom: 1px solid invert($action-color);
+    
+    &:hover {
+      
+    }
+  }
+  
+  a {
+    color: complement($action-color);
+  }
+  
+  ul > li {
+    &:first-child {
+      padding-top: .5em;
+      border-top: 1px solid invert($action-color);
+    }
+  }
+  
+  .site-title {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+  }
+  
+  .site-date {
+    display: block;
+    font-size: ms(-1);
   }
 }
