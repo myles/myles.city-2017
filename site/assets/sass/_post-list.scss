@@ -19,6 +19,10 @@
   
   border-bottom: 1px solid darken($action-color, 30%);
   
+  a {
+    color: $action-color;
+  }
+  
   &:hover {
     background-color: $action-color;
     
