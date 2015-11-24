@@ -47,6 +47,24 @@ module.exports = function (grunt) {
                 }
             }
         },
+        rsync: {
+            options: {
+                exclude: [
+                    "assets/sass",
+                    "cache"
+                ],
+                args: ["--verbose"],
+                recursive: true
+            },
+            nfs: {
+                options: {
+                    src: './site/',
+                    dest: '/home/public',
+                    host: 'nfs_myles-city',
+                    delete: true
+                }
+            }
+        },
         concurrent: {
             target: {
                 tasks: ['php:watch', 'watch'],
@@ -59,8 +77,10 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-php');
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-rsync');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
+    grunt.registerTask('deploy', ['sass', 'rsync']);
     grunt.registerTask('default', ['sass', 'concurrent']);
 };

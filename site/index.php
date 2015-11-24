@@ -61,26 +61,28 @@ $feeds = array(
 					$pie->handle_content_type();
 					?>
 					<div class="site site-<?php echo $feed_data; ?>">
-						<h2>
-							<a href="<?php echo $feed[url]; ?>">
-								<?php echo $feed[title]; ?>
-							</a>
-						</h2>
+						<div class="site-title">
+							<h2>
+								<a href="<?php echo $feed[url]; ?>">
+									<?php echo $feed[title]; ?>
+								</a>
+							</h2>
+						</div>
 					
-						<ul>
+						<div class="post-list">
 						<?php foreach ($pie->get_items() as $item): ?>
-							<li>
+							<div class="post">
 								<a href="<?php echo $item->get_permalink(); ?>">
-									<span class="site-date">
+									<span class="post-date">
 										<?php echo $item->get_local_date('%e %b %Y'); ?>
 									</span>
-									<span class="site-title">
+									<span class="post-title">
 										<?php echo $item->get_title(); ?>
 									</span>
 								</a>
-							</li>
+							</div>
 						<?php endforeach; ?>
-						</ul>
+						</div>
 					</div>
 				<?php endforeach; ?>
 			</div>
