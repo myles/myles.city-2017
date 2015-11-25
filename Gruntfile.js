@@ -1,4 +1,6 @@
 module.exports = function (grunt) {
+    'use strict';
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -73,12 +75,26 @@ module.exports = function (grunt) {
                     logConcurrentOutput: true
                 }
             }
+        },
+        phplint: {
+            files: ['./site/index.php']
+        },
+        scsslint: {
+            options: {
+                colourizeOutput: true
+            },
+            allFiles: [
+                './site/scss/*.scss',
+                './site/scss/**/*.scss'
+            ]
         }
     });
 
     grunt.loadNpmTasks('grunt-php');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-rsync');
+    grunt.loadNpmTasks('grunt-phplint');
+    grunt.loadNpmTasks('grunt-scss-lint');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-watch');
 

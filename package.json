@@ -6,7 +6,9 @@
     "grunt-concurrent": "^2.1.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-php": "^1.5.1",
+    "grunt-phplint": "0.0.5",
     "grunt-rsync": "^0.6.2",
-    "grunt-sass": "^1.1.0"
+    "grunt-sass": "^1.1.0",
+    "grunt-scss-lint": "^0.3.8"
   }
 }
