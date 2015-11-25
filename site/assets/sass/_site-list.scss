@@ -29,8 +29,8 @@
   @include border-top-radius(.5em);
   @include padding(.5em null);
   
-  text-align: center;
   background: $action-color;
+  text-align: center;
   
   @include media($medium-screen-up) {
     text-align: left;
@@ -42,7 +42,7 @@
   }
   
   a {
-    color: #fff;
+    color: $white;
   }
   
   &:hover {

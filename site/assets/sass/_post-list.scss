@@ -5,12 +5,22 @@
   
   @include media($medium-screen-up) {
     height: 25vh;
-    overflow-y: scroll;
     overflow-x: hidden;
+    overflow-y: scroll;
   }
   
   @include media($large-screen-up) {
     height: 50vh;
+  }
+  
+  > .post {
+    &:first-child {
+      padding-top: .5em;
+    }
+    
+    &:last-child {
+      border-bottom: 0;
+    }
   }
 }
 
@@ -27,17 +37,8 @@
     background-color: $action-color;
     
     a {
-      color: #fff;
+      color: $white;
     }
-  }
-}
-
-.post-list > .post {
-  &:first-child {
-    padding-top: .5em;
-  }
-  &:last-child {
-    border-bottom: none;
   }
 }
 
@@ -49,10 +50,10 @@
 
 .post-title {
   display: block;
-  text-overflow: ellipsis;
   overflow: hidden;
-  width: 100%;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  width: 100%;
 }
 
 .post-date {
