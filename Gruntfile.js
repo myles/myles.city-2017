@@ -83,9 +83,6 @@ module.exports = function (grunt) {
                     logConcurrentOutput: true
                 }
             }
-        },
-        phplint: {
-            files: ['./site/index.php']
         }
     });
 
