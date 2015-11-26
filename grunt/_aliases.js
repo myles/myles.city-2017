@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
     'use strict';
 
-    grunt.registerTask('run', [
+    grunt.registerTask('develop', [
         'sass:dev',
         'concurrent'
     ]);
@@ -17,5 +17,5 @@ module.exports = function (grunt) {
         'phplint'
     ]);
 
-    grunt.registerTask('default', ['run']);
+    grunt.registerTask('default', ['develop']);
 };
