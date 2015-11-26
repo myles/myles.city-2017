@@ -95,10 +95,7 @@ module.exports = function (grunt) {
                 './site/assets/scss/*.scss',
                 './site/assets/scss/**/*.scss'
             ]
-        },
-        clean: [
-            "./site/assets/css/style.*"
-        ]
+        }
     });
 
     grunt.loadNpmTasks('grunt-php');
