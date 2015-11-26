@@ -2,21 +2,7 @@ module.exports = function (grunt) {
     'use strict';
 
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
-
-        php: {
-            options: {
-                hostname: '0.0.0.0',
-                port: 4000,
-                base: 'site',
-                keepalive: true
-            },
-            watch: {
-                options: {
-                    livereload: true
-                }
-            }
-        }
+        pkg: grunt.file.readJSON('package.json')
     });
 
     grunt.loadNpmTasks('grunt-php');
