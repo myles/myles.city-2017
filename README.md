@@ -22,9 +22,9 @@ Install the Node.js and Bower dependencies:
 
 ### Usage
 
-To run a test webserver:
+To run teh develop web server for testing:
 
-	$ grunt
+	$ grunt develop
 
 To deploy the website:
 
