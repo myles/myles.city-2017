@@ -86,15 +86,6 @@ module.exports = function (grunt) {
         },
         phplint: {
             files: ['./site/index.php']
-        },
-        scsslint: {
-            options: {
-                colourizeOutput: true
-            },
-            allFiles: [
-                './site/assets/scss/*.scss',
-                './site/assets/scss/**/*.scss'
-            ]
         }
     });
 
