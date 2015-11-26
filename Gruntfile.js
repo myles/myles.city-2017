@@ -31,6 +31,14 @@ module.exports = function (grunt) {
                 files: {
                     'site/assets/css/style.css': 'site/assets/sass/style.scss'
                 }
+            },
+            deploy: {
+                options: {
+                    outputStyle: 'compressed'
+                },
+                files: {
+                    'site/assets/css/style.css': 'site/assets/sass/style.scss'
+                }
             }
         },
         watch: {
@@ -84,10 +92,13 @@ module.exports = function (grunt) {
                 colourizeOutput: true
             },
             allFiles: [
-                './site/scss/*.scss',
-                './site/scss/**/*.scss'
+                './site/assets/scss/*.scss',
+                './site/assets/scss/**/*.scss'
             ]
-        }
+        },
+        clean: [
+            "./site/assets/css/style.*"
+        ]
     });
 
     grunt.loadNpmTasks('grunt-php');
@@ -96,8 +107,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-phplint');
     grunt.loadNpmTasks('grunt-scss-lint');
     grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('deploy', ['sass', 'rsync']);
-    grunt.registerTask('default', ['sass', 'concurrent']);
+    grunt.registerTask('deploy', ['sass:deploy', 'rsync', 'clean']);
+    grunt.registerTask('default', ['sass:dev', 'concurrent']);
 };
