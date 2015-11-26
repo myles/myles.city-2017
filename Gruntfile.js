@@ -110,6 +110,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('deploy', ['sass:deploy', 'rsync', 'clean']);
-    grunt.registerTask('default', ['sass:dev', 'concurrent']);
+    grunt.task.loadTasks('./grunt/');
 };
