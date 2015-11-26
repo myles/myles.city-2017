@@ -75,14 +75,6 @@ module.exports = function (grunt) {
                     delete: true
                 }
             }
-        },
-        concurrent: {
-            target: {
-                tasks: ['php:watch', 'watch'],
-                options: {
-                    logConcurrentOutput: true
-                }
-            }
         }
     });
 
