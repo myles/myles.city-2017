@@ -14,6 +14,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('deploy', [
+        'clean',
         'assets',
         'sass:deploy',
         'rsync',
