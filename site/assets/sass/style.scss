@@ -11,8 +11,6 @@
 // Core variables
 @import 'variables';
 
-@import 'lato-regular';
-
 // Bitters
 //@import 'buttons';
 //@import 'forms';
@@ -26,6 +24,7 @@
 @import 'mixins/animations';
 
 // App
+@import 'fonts';
 @import 'page';
 @import 'site-list';
 @import 'custom-sites';

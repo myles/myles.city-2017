@@ -13,7 +13,7 @@ module.exports = function (grunt) {
         },
         fonts: {
             src: ['lato'],
-            dest: 'site/assets/fonts/lato-regular/'
+            dest: 'site/assets/fonts/'
         }
     };
 

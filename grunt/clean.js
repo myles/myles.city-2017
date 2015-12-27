@@ -3,7 +3,9 @@ module.exports = function (grunt) {
 
     var config = {
         build: [
-            './site/assets/css/style.*'
+            './site/assets/css/style.*',
+            './site/assets/fonts/',
+            './site/assets/javascript/libs/'
         ]
     };
 
