@@ -112,18 +112,13 @@ $feeds = array(
 				<?php }; ?>
 			</div>
 		</div>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
-		<script src="/assets/javascript/svg-injector.min.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function () {
-				$('.page-title h1').lettering();
-				$('.page-title h1').fitText(0.6);
-				$('.site-title h2').fitText(1.4);
-				SVGInjector($('.page-title img'));
-			});
-		</script>
+		
+		<script src="/assets/javascript/libs/jquery.js"></script>
+		<script src="/assets/javascript/libs/jquery.fittext.js"></script>
+		<script src="/assets/javascript/libs/jquery.lettering.js"></script>
+		<script src="/assets/javascript/libs/svg-injector.js"></script>
+		<script src="/assets/javascript/app.js"></script>
+		
 		<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-1642439-41', 'auto');ga('send', 'pageview'); </script>
 	</body>
 </html>

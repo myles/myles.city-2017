@@ -8,11 +8,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-php');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-rsync');
+    grunt.loadNpmTasks('bower-mapper');
     grunt.loadNpmTasks('grunt-phplint');
     grunt.loadNpmTasks('grunt-scss-lint');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.task.loadTasks('./grunt/');
 };

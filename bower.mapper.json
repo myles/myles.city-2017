@@ -1,0 +1,14 @@
+{
+  "jquery": {
+    "js": { "dist/jquery.js": "dist/jquery.min.js" }
+  },
+  "svg-injector": {
+    "js": { "svg-injector.js": "dist/svg-injector.min.js" }
+  },
+  "FitText.js": {
+    "js": "jquery.fittext.js"
+  },
+  "letteringjs": {
+    "js": "jquery.lettering.js"
+  }
+}
