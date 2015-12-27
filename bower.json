@@ -10,6 +10,7 @@
     "svg-injector": "~1.1.3",
     "FitText.js": "~1.2.0",
     "letteringjs": "~0.7.0",
-    "old-fashioned": "https://github.com/myles/old-fashioned"
+    "old-fashioned": "https://github.com/myles/old-fashioned",
+    "lato": "~0.3.0"
   }
 }

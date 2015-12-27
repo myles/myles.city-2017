@@ -3,39 +3,7 @@
 date_default_timezone_set('America/Toronto');
 
 require_once('./simplepie.php');
-
-$feeds = array(
-	'blog' => array(
-		'title' => 'Myles Braithwaite',
-		'url' => 'http://mylesbraithwaite.com/',
-		'feed_url' => 'http://mylesbraithwaite.com/feeds/',
-		'important' => true
-	),
-	'lab' => array(
-		'title' => 'Myles\' Lab',
-		'url' => 'http://mylesbraithwaite.org/',
-		'feed_url' => 'http://mylesbraithwaite.org/feeds.xml',
-		'important' => true
-	),
-	'life' => array(
-		'title' => 'Myles\' Life',
-		'url' => 'http://www.myles.life/',
-		'feed_url' => 'http://www.myles.life/feed/',
-		'important' => true
-	),
-	'theworst' => array(
-		'title' => 'You are the Worst Today',
-		'url' => 'https://youaretheworst.today/',
-		'feed_url' => 'https://youaretheworst.today/feeds.xml',
-		'important' => false
-	),
-	'red' => array(
-		'title' => 'Myles.RED',
-		'url' => 'http://myles.red/',
-		'feed_url' => 'http://myles.red/feeds.xml',
-		'important' => false
-	),
-);
+require_once('./config.php');
 ?>
 <html class="no-js" lang="en">
 	<head>
@@ -49,7 +17,8 @@ $feeds = array(
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<link rel="stylesheet" href="/assets/css/style.css">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato">
+		
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.php">
 	</head>
 	<body>
 		<div class="page">

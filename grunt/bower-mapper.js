@@ -10,6 +10,10 @@ module.exports = function (grunt) {
                 'letteringjs'
             ],
             dest: 'site/assets/javascript/libs'
+        },
+        fonts: {
+            src: ['lato'],
+            dest: 'site/assets/fonts/lato-regular/'
         }
     };
 

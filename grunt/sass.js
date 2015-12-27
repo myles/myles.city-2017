@@ -7,7 +7,8 @@ module.exports = function (grunt) {
                 './bower_components/bourbon/app/assets/stylesheets/',
                 './bower_components/bitters/app/assets/stylesheets/',
                 './bower_components/neat/app/assets/stylesheets/',
-                './bower_components/modular-scale/stylesheets/'
+                './bower_components/modular-scale/stylesheets/',
+                './bower_components/lato/scss/'
             ],
             sourceMap: true
         },

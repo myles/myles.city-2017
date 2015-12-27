@@ -10,5 +10,14 @@
   },
   "letteringjs": {
     "js": "jquery.lettering.js"
+  },
+  "lato": {
+    "fonts": [
+      "font/lato-regular/lato-regular.eot",
+      "font/lato-regular/lato-regular.svg",
+      "font/lato-regular/lato-regular.ttf",
+      "font/lato-regular/lato-regular.woff",
+      "font/lato-regular/lato-regular.woff2"
+    ]
   }
 }
