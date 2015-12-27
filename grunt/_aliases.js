@@ -1,16 +1,20 @@
 module.exports = function (grunt) {
     'use strict';
 
-    grunt.registerTask('develop', [
+    grunt.registerTask('assets', [
         'bower-mapper',
         'uglify',
+        'svg2png'
+    ]);
+
+    grunt.registerTask('develop', [
+        'assets',
         'sass:dev',
         'concurrent'
     ]);
 
     grunt.registerTask('deploy', [
-        'bower-mapper',
-        'uglify',
+        'assets',
         'sass:deploy',
         'rsync',
         'clean'

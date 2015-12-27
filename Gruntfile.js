@@ -9,6 +9,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-rsync');
     grunt.loadNpmTasks('bower-mapper');
+    grunt.loadNpmTasks('grunt-svg2png');
     grunt.loadNpmTasks('grunt-phplint');
     grunt.loadNpmTasks('grunt-scss-lint');
     grunt.loadNpmTasks('grunt-concurrent');
