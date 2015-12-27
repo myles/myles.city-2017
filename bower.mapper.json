@@ -13,16 +13,16 @@
   },
   "lato": {
     "fonts": [
-      "font/lato-regular/lato-regular.eot",
-      "font/lato-regular/lato-regular.svg",
-      "font/lato-regular/lato-regular.ttf",
-      "font/lato-regular/lato-regular.woff",
-      "font/lato-regular/lato-regular.woff2",
       "font/lato-bold/lato-bold.eot",
       "font/lato-bold/lato-bold.svg",
       "font/lato-bold/lato-bold.ttf",
       "font/lato-bold/lato-bold.woff",
-      "font/lato-bold/lato-bold.woff2"
+      "font/lato-bold/lato-bold.woff2",
+      "font/lato-regular/lato-regular.eot",
+      "font/lato-regular/lato-regular.svg",
+      "font/lato-regular/lato-regular.ttf",
+      "font/lato-regular/lato-regular.woff",
+      "font/lato-regular/lato-regular.woff2"
     ]
   }
 }

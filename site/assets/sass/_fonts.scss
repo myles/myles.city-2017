@@ -1,29 +1,4 @@
 $font-path: '../fonts';
 
-@font-face {
-  font-family: 'Lato';
-  src: url('#{$font-path}/lato-regular.eot');
-  src: local('Lato Regular'),
-       local('Lato-Regular'),
-       url('#{$font-path}/lato-regular.eot?#iefix') format('embedded-opentype'),
-       url('#{$font-path}/lato-regular.woff2') format('woff2'),
-       url('#{$font-path}/lato-regular.woff') format('woff'),
-       url('#{$font-path}/lato-regular.ttf') format('truetype'),
-       url('#{$font-path}/lato-regular.svg#lato') format('svg');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Lato';
-  src: url('#{$font-path}/lato-bold.eot');
-  src: local('Lato Bold'),
-       local('Lato-Bold'),
-       url('#{$font-path}/lato-bold.eot?#iefix') format('embedded-opentype'),
-       url('#{$font-path}/lato-bold.woff2') format('woff2'),
-       url('#{$font-path}/lato-bold.woff') format('woff'),
-       url('#{$font-path}/lato-bold.ttf') format('truetype'),
-       url('#{$font-path}/lato-bold.svg#lato') format('svg');
-  font-weight: 700;
-  font-style: normal;
-}
+@include font-face('Lato', '#{$font-path}/lato-regular');
+@include font-face('Lato', '#{$font-path}/lato-bold', bold);
