@@ -26,7 +26,7 @@ require_once('./config.php');
 	<body>
 		<div class="page">
 			<div class="page-title">
-				<img class="logo" src="/assets/images/toronto.svg">
+				<img class="logo" data-src="/assets/images/toronto.svg" data-fallback="/assets/images/toronto.png" title="Toronto">
 				<h1>Myles.City</h1>
 			</div>
 			
