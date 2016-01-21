@@ -18,8 +18,7 @@ require_once('./config.php');
 		
 		<link rel="stylesheet" href="/assets/css/style.css">
 		
-		<link rel="shortcut icon" href="/assets/images/toronto.png"> 
-		<link rel="apple-itouch-icon" href="/assets/images/toronto.png">
+		<link rel="shortcut icon" href="/assets/images/toronto.png">
 		
 		<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.php">
 	</head>
