@@ -1,11 +1,14 @@
 <?php
-include_once('./simplepie.php');
+require_once('./simplepie.php');
 require_once('./config.php');
+require_once('./utils.php');
 
 $feed_link = 'http://myles.city/rss.php';
 $feed_title = 'Myles Braithwaite\'s Feeds';
 $feed_home = 'http://myles.city';
 $feed_desc = 'Hoping for the Best, Imagining the Worst.';
+
+$utm_queries['utm_medium'] = 'feed';
 
 function array_value_recursive($key, array $arr) {
 	/**
@@ -37,6 +40,7 @@ $success = $pie->init();
 $pie->handle_content_type();
 
 header('Content-Type: application/rss+xml; charset=UTF-8');
+header('Accept: application/rss+xml, application/rdf+xml, application/atom+xml, application/xml, text/xml');
 
 echo '<?xml version="1.0" encoding="UTF-8"?>';
 ?>
@@ -58,11 +62,12 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 				if ($item_limit == 40) {
 					break;
 				}
+				$permalink = htmlspecialchars(FixURLs($item->get_permalink(), $utm_queries));
 		?>
 		<item>
 			<title><?php echo $item->get_title(); ?></title>
-			<link><?php echo $item->get_permalink(); ?></link>
-			<guid><?php echo $item->get_permalink(); ?></guid>
+			<link><?php echo $permalink ?></link>
+			<guid><?php echo $permalink ?></guid>
 			<pubDate><?php echo $item->get_date('D, d M Y H:i:s T'); ?></pubDate>
 			<dc:creator><?php if ($author = $item->get_author()) { echo $author->get_name()." at "; }; ?><?php if ($feed_title = $item->get_feed()->get_title()) {echo $feed_title;}?></dc:creator>
 				<description><?php echo htmlspecialchars(strip_tags($item->get_description())); ?></description>

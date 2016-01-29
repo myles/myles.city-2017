@@ -1,4 +1,12 @@
 <?php
+
+$utm_queries = array(
+	'utm_source' => 'myles.city',
+	'utm_medium' => 'website',
+	'utm_campaign' => 'cross'
+	
+);
+
 $feeds = array(
 	'blog' => array(
 		'title' => 'Myles Braithwaite',

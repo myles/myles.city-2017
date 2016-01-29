@@ -4,6 +4,7 @@ date_default_timezone_set('America/Toronto');
 
 require_once('./simplepie.php');
 require_once('./config.php');
+require_once('./utils.php');
 ?>
 <html class="no-js" lang="en">
 	<head>
@@ -36,7 +37,7 @@ require_once('./config.php');
 					$pie->set_feed_url($feed[feed_url]);
 					$pie->init();
 					$pie->handle_content_type();
-					$feed_url = preg_replace('/&?utm_.+?(&|$)$/', '', $feed[url]);
+					$feed_url = FixURLs($feed[url], $utm_queries);
 					$feed_title = $feed[title];
 					$important = $feed[important];
 				?>
@@ -53,11 +54,13 @@ require_once('./config.php');
 						<?php
 						$first = true;
 						foreach ($pie->get_items() as $item) {
-							preg_match('@<img.+src="(.*)".*>@Uims', $item->get_content(), $matches);
+							preg_match('@<img.+src="(.*)".*>@Uims',
+									   $item->get_content(), $matches);
 							$image = $matches[1];
 							$title = html_entity_decode($item->get_title());
 							$date = $item->get_local_date('%e %b %Y');
-							$permalink = preg_replace('/&?utm_.+?(&|$)$/', '', $item->get_permalink());
+							$permalink = FixURLs($item->get_permalink(),
+												 $utm_queries);
 						?>
 							<div class="post">
 								<a href="<?php echo $permalink; ?>">
