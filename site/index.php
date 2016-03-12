@@ -21,7 +21,10 @@ require_once('./utils.php');
 		
 		<link rel="shortcut icon" href="/assets/images/toronto.png">
 		
-		<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.php">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https://myles.city/rss.php">
+
+		<link rel="canonical" href="https://myles.city/">
+		<link rel="onion" href="http://awnmejv3e7d3fahx.onion/">
 	</head>
 	<body>
 		<div class="page">

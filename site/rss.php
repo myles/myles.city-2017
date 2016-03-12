@@ -3,9 +3,9 @@ require_once('./simplepie.php');
 require_once('./config.php');
 require_once('./utils.php');
 
-$feed_link = 'http://myles.city/rss.php';
+$feed_link = 'https://myles.city/rss.php';
 $feed_title = 'Myles Braithwaite\'s Feeds';
-$feed_home = 'http://myles.city';
+$feed_home = 'https://myles.city';
 $feed_desc = 'Hoping for the Best, Imagining the Worst.';
 
 $utm_queries['utm_medium'] = 'feed';

@@ -1,6 +1,6 @@
 # myles.city
 
-This is the source code for [one of my web sites](http://myles.city/). It's written in PHP (I know :grimacing:) and deployed on [NearlyFreeSpeech.NET](https://www.nearlyfreespeech.net/).
+This is the source code for [one of my web sites](https://myles.city/). It's written in PHP (I know :grimacing:) and deployed on [NearlyFreeSpeech.NET](https://www.nearlyfreespeech.net/).
 
 ## Development
 

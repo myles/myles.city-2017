@@ -11,11 +11,11 @@ module.exports = function (grunt) {
             args: ["--verbose"],
             recursive: true
         },
-        nfs: {
+        prod: {
             options: {
                 src: './site/',
-                dest: '/home/public',
-                host: 'nfs_myles-city',
+                dest: '/srv/www/myles.city/www/html',
+                host: 'bear',
                 delete: true
             }
         }
