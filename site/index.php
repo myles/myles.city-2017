@@ -25,6 +25,20 @@ require_once('./utils.php');
 
 		<link rel="canonical" href="https://myles.city/">
 		<link rel="onion" href="http://awnmejv3e7d3fahx.onion/">
+
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["setDomains", ["*.myles.city","*.www.myles.city"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//piwik.mylesb.ca/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', 7]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
 	</head>
 	<body>
 		<div class="page">
@@ -89,13 +103,15 @@ require_once('./utils.php');
 				<?php }; ?>
 			</div>
 		</div>
-		
+
+    <noscript><p><img src="//piwik.mylesb.ca/piwik.php?idsite=7" style="border:0;" alt="" /></p></noscript>
+
 		<script src="/assets/javascript/libs/jquery.js"></script>
 		<script src="/assets/javascript/libs/jquery.fittext.js"></script>
 		<script src="/assets/javascript/libs/jquery.lettering.js"></script>
 		<script src="/assets/javascript/libs/svg-injector.js"></script>
 		<script src="/assets/javascript/app.js"></script>
-		
+
 		<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-1642439-41', 'auto');ga('send', 'pageview'); </script>
 	</body>
 </html>
