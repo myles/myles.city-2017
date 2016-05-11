@@ -14,27 +14,33 @@ $feeds = array(
 	),
 	'lab' => array(
 		'title' => 'Myles\' Lab',
-		'url' => 'http://mylesbraithwaite.org/',
-		'feed_url' => 'http://mylesbraithwaite.org/feeds.xml',
+		'url' => 'https://mylesbraithwaite.org/',
+		'feed_url' => 'https://mylesbraithwaite.org/feeds.xml',
 		'important' => true
 	),
 	'life' => array(
 		'title' => 'Myles\' Life',
-		'url' => 'http://www.myles.life/',
-		'feed_url' => 'http://www.myles.life/feed/',
+		'url' => 'https://www.myles.life/',
+		'feed_url' => 'https://www.myles.life/feed/',
 		'important' => true
 	),
 	'theworst' => array(
 		'title' => 'You are the Worst Today',
 		'url' => 'https://youaretheworst.today/',
-		'feed_url' => 'https://youaretheworst.today/feeds.xml',
+		'feed_url' => 'https://youaretheworst.today/feed.xml',
 		'important' => false
 	),
 	'red' => array(
 		'title' => 'Myles.RED',
 		'url' => 'http://myles.red/',
-		'feed_url' => 'http://myles.red/feeds.xml',
+		'feed_url' => 'http://myles.red/feed.xml',
 		'important' => false
 	),
+  'love-hate' => array(
+    'title' => 'I Love/Hate Myles',
+    'url' => 'https://ilovemyles.com/',
+    'feed_url' => 'https://ilovemyles.com/rss/',
+    'important' => false
+  ),
 );
 ?>
