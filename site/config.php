@@ -42,5 +42,11 @@ $feeds = array(
     'feed_url' => 'https://ilovemyles.com/rss/',
     'important' => false
   ),
+  'social' => array(
+    'title' => 'Myles\' Known',
+    'url' => 'https://social.mylesb.ca/',
+    'feed_url' => 'https://social.mylesb.ca/?_t=rss',
+    'important' => false
+  ),
 );
 ?>
