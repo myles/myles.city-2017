@@ -1,0 +1,53 @@
+body {
+  padding-top: 70px;
+}
+
+.post-list {
+  
+}
+
+.post {
+  max-height: 250px;
+  overflow: hidden;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  text-align: center;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  background-repate: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.post--cover {
+  background-color: #222;
+}
+
+.post--no-cover {
+  background: #f6f6f6;
+}
+
+.post__link {
+  height: 100%;
+  width: 80%;
+  margin: 1rem auto;
+  word-wrap: break-word;
+  border-bottom: 0;
+}
+
+.post--cover .post__link {
+  color: #fff;
+}
+
+.post--no-cover .post__link {
+  color: #4a4a4a;
+}
+
+.post__meta {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}

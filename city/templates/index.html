@@ -1,0 +1,40 @@
+{%- extends "base.html" %}
+
+{% import "bootstrap/utils.html" as utils %}
+
+{% block content %}
+    <div class="post-list">
+        {% for entry in entries %}
+        <div class="post {% if entry.image %}post--cover{% else %}post--no-cover{% endif %}" {% if entry.image %}style="background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url({{ entry.image }})"{% endif %}>
+            <a href="{{ entry.link }}" class="post__link">
+                <h2 class="post__title">{{ entry.title }}</h2>
+                <ul class="post__meta">
+                    <li class="post__published">{{ entry.published }}</li>
+                    <li class="post__publisher">{{ entry.publisher }}</li>
+                </ul>
+            </a>
+        </div>
+        {% endfor %}
+
+        <div class="post post--no-cover">
+            <a href="#" class="post__link">
+                <h2 class="post__title">Lorem Ipsum</h2>
+                <ul class="post__meta">
+                    <li class="post__published">24 May 2016 at 4:13 PM</li>
+                    <li class="post__publisher">Myles' Life</li>
+                </ul>
+            </a>
+        </div>
+        
+        <div class="post post--cover" style="background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(https://c2.staticflickr.com/8/7402/27115017615_92ecfdf0db_o.jpg)">
+            <a href="#" class="post__link">
+                <h2 class="post__title">Lorem Ipsum</h2>
+                
+                <ul class="post__meta">
+                    <li class="post__published">24 May 2016 at 11:32 AM</li>
+                    <li class="post__publisher">I Love/Hate Myles</li>
+                </ul>
+            </a>
+        </div>
+    </div>
+{% endblock %}
