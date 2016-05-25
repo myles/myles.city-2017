@@ -2,6 +2,34 @@
 
 {% import "bootstrap/utils.html" as utils %}
 
+{% block navbar %}
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://myles.city/">The City of Myles</a>
+            </div>
+            
+            <div class="collapse navbar-collapce" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    {% for feed in feeds %}
+                    <li>
+                        <a href="{{ feed.url }}" title="{{ feed.title }}">
+                            <img src="{{ feed.icon }}" alt="{{ feed.title }}">
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
     <div class="post-list">
         {% for entry in entries %}
@@ -9,32 +37,12 @@
             <a href="{{ entry.link }}" class="post__link">
                 <h2 class="post__title">{{ entry.title }}</h2>
                 <ul class="post__meta">
-                    <li class="post__published">{{ entry.published }}</li>
+                    <li class="post__published">
+                        {{ entry.published.strftime('%d %B %Y at %-I:%M %p') }}
+                    </li>
                     <li class="post__publisher">{{ entry.publisher }}</li>
                 </ul>
             </a>
         </div>
         {% endfor %}
-
-        <div class="post post--no-cover">
-            <a href="#" class="post__link">
-                <h2 class="post__title">Lorem Ipsum</h2>
-                <ul class="post__meta">
-                    <li class="post__published">24 May 2016 at 4:13 PM</li>
-                    <li class="post__publisher">Myles' Life</li>
-                </ul>
-            </a>
-        </div>
-        
-        <div class="post post--cover" style="background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(https://c2.staticflickr.com/8/7402/27115017615_92ecfdf0db_o.jpg)">
-            <a href="#" class="post__link">
-                <h2 class="post__title">Lorem Ipsum</h2>
-                
-                <ul class="post__meta">
-                    <li class="post__published">24 May 2016 at 11:32 AM</li>
-                    <li class="post__publisher">I Love/Hate Myles</li>
-                </ul>
-            </a>
-        </div>
-    </div>
 {% endblock %}

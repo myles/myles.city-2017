@@ -1,4 +1,5 @@
 import os
+import json
 
 from flask import Flask
 
@@ -16,6 +17,11 @@ def create_app(configfile=None):
 
     app.register_blueprint(frontend)
     app.config['BOOTSTRAP_SERVE_LOCAL'] = True
+
+    ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    with open(os.path.join(ROOT_DIR, 'feeds.json'), 'r') as f:
+        app.config['FEEDS'] = json.loads(f.read())
 
     return app
 

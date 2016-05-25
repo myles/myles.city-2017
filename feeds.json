@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Myles Braithwaite",
+    "slug": "blog",
+    "url": "https://mylesbraithwaite.com/",
+    "feed_url": "http://mylesbraithwaite.com/feeds/",
+    "icon": ""
+  },
+  {
+    "title": "Myles' Lab",
+    "slug": "lab",
+    "url": "https://mylesbraithwaite.org/",
+    "feed_url": "https://mylesbraithwaite.org/feeds.xml",
+    "icon": ""
+  },
+  {
+    "title": "Myles' Life",
+    "slug": "life",
+    "url": "https://myles.life/",
+    "feed_url": "https://myles.life/feed/",
+    "icon": ""
+  },
+  {
+    "title": "You are the Worst Today",
+    "slug": "the-worst",
+    "url": "https://youaretheworst.today/",
+    "feed_url": "https://youaretheworst.today/feed.xml",
+    "icon": ""
+  },
+  {
+    "title": "Myles.RED",
+    "slug": "red",
+    "url": "https://myles.red/",
+    "feed_url": "https://myles.red/feed.xml",
+    "icon": ""
+  },
+  {
+    "title": "I Love/Hate Myles",
+    "slug": "love-hate",
+    "url": "https://ilovemyles.com/",
+    "feed_url": "https://ilovemyles.com/rss/",
+    "icon": ""
+  }
+]

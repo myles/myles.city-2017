@@ -1,25 +1,38 @@
 from time import mktime
-from operator import itemgetter
 from datetime import datetime
+from operator import attrgetter
+from html.parser import HTMLParser
 
 import feedparser
 
-feeds = [
-    {
-        'title': 'I Love/Hate Myles',
-        'url': 'https://ilovemyles.com/',
-        'feed_url': 'https://ilovemyles.com/rss/',
-        'icon': 'https://ilovemyles.com/content/images/2016/05/logomark-1.png'
-    },
-    {
-        'title': 'Myles\' Life',
-        'url': 'https://myles.life/',
-        'feed_url': 'https://myles.life/feed/'
-    }
-]
+
+class ExtractImagesHTMLParser(HTMLParser):
+    """
+    Finds all the Images.
+    """
+    def __init__(self):
+        HTMLParser.__init__(self)
+        self.image_url = ''
+        self.no_img_html = ''
+
+    def handle_starttag(self, tag, attrs):
+        if tag == 'img':
+            for a in attrs:
+                if a[0] == 'src':
+                    self.image_url = a[1]
+        else:
+            self.no_img_html += self.get_starttag_text()
+
+    def handle_endtag(self, tag):
+        if tag != 'img':
+            self.no_img_html += '</%s>' % tag
+
+    def handle_data(self, data):
+        self.no_img_html += data
+        self.text = data
 
 
-def get_feed_entries():
+def get_feed_entries(feeds):
     entries = []
 
     for feed in feeds:
@@ -32,9 +45,14 @@ def get_feed_entries():
             if 'media_content' in entry:
                 if entry.media_content[0]['medium'] == 'image':
                     entry.image = entry.media_content[0]['url']
+            else:
+                parser = ExtractImagesHTMLParser()
+                parser.feed(entry.description)
+
+                entry.image = parser.image_url
 
             entry.published = datetime.fromtimestamp(mktime(entry.published_parsed))
 
             entries.append(entry)
 
-    return sorted(entries, key=itemgetter('published'), reverse=True)
+    return sorted(entries, key=attrgetter('published'), reverse=True)
