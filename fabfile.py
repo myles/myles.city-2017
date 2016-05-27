@@ -50,19 +50,20 @@ def pip_upgrade():
 
 
 @api.task
-def gunicorn_restart():
+def freeze_site():
     """
-    Restart the supervisord process.
+    Generate the static website.
     """
-    # TODO `mylesb.ca-whereis` should be in the environment variables.
-    api.sudo('supervisorctl restart {0}'.format('myles.city-www'))
+    with api.cd(api.env.proj_dir):
+        api.run('{0} manage.py freeze {1}'.format(api.env.venv_python,
+                                                  api.env.html_dir))
 
 
 @api.task
 def ship_it():
     update_code()
     pip_upgrade()
-    gunicorn_restart()
+    freeze_site()
     puts("        />>")
     puts(" __   .' '}")
     puts("{_ \.'  <<")
