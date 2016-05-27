@@ -1,35 +1,9 @@
 from time import mktime
 from datetime import datetime
 from operator import attrgetter
-from html.parser import HTMLParser
 
 import feedparser
-
-
-class ExtractImagesHTMLParser(HTMLParser):
-    """
-    Finds all the Images.
-    """
-    def __init__(self):
-        HTMLParser.__init__(self)
-        self.image_url = ''
-        self.no_img_html = ''
-
-    def handle_starttag(self, tag, attrs):
-        if tag == 'img':
-            for a in attrs:
-                if a[0] == 'src':
-                    self.image_url = a[1]
-        else:
-            self.no_img_html += self.get_starttag_text()
-
-    def handle_endtag(self, tag):
-        if tag != 'img':
-            self.no_img_html += '</%s>' % tag
-
-    def handle_data(self, data):
-        self.no_img_html += data
-        self.text = data
+from bs4 import BeautifulSoup
 
 
 def get_feed_entries(feeds):
@@ -45,13 +19,16 @@ def get_feed_entries(feeds):
             if 'media_content' in entry:
                 if entry.media_content[0]['medium'] == 'image':
                     entry.image = entry.media_content[0]['url']
-            else:
-                parser = ExtractImagesHTMLParser()
-                parser.feed(entry.description)
+            elif 'content' in entry:
+                soup = BeautifulSoup(entry.content[0]['value'], 'html.parser')
+                image = soup.find_all('img')[0]
+                entry.image = image.get('src')
 
-                entry.image = parser.image_url
+            published = datetime.fromtimestamp(mktime(entry.published_parsed))
+            updated = datetime.fromtimestamp(mktime(entry.updated_parsed))
 
-            entry.published = datetime.fromtimestamp(mktime(entry.published_parsed))
+            entry.published = published
+            entry.updated = updated
 
             entries.append(entry)
 
