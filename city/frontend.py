@@ -1,5 +1,5 @@
 from werkzeug.contrib.atom import AtomFeed
-from flask import Blueprint, render_template, current_app, request
+from flask import Blueprint, render_template, current_app, request, Response
 
 from .utils import get_feed_entries
 
@@ -29,4 +29,4 @@ def atom_feed():
                  author=entry.publisher, url=entry.link,
                  published=entry.published, updated=entry.updated)
 
-    return feed.get_response()
+    return Response(feed.to_string(), mimetype="application/xml")

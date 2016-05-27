@@ -6,6 +6,8 @@ from fabric.utils import puts
 api.env.hosts = ['bear']
 api.env.use_ssh_config = True
 
+api.env.repo = 'git@github.com:myles/myles.city'
+
 # Directories
 api.env.root_dir = '/srv/www/myles.city/www'
 api.env.proj_dir = os.path.join(api.env.root_dir, 'app')
@@ -16,6 +18,35 @@ api.env.venv_dir = os.path.join(api.env.root_dir, 'venv')
 # Python Bullshit
 api.env.venv_python = os.path.join(api.env.venv_dir, 'bin/python')
 api.env.venv_pip = os.path.join(api.env.venv_dir, 'bin/pip')
+
+
+@api.task
+def setup():
+    """
+    Setup the deploy server.
+    """
+    # Make a bunch of the directories.
+    api.sudo('mkdir -p {0}'.format(' '.join([api.env.proj_dir,
+                                             api.env.logs_dir,
+                                             api.env.html_dir,
+                                             api.env.venv_dir])))
+
+    # Make sure the directories are writeable by me.
+    api.sudo('chown myles:myles {0}'.format(' '.join([api.env.proj_dir,
+                                                      api.env.html_dir,
+                                                      api.env.venv_dir])))
+
+    # Createh virtual environment.
+    api.run('virtualenv {0}'.format(api.env.venv_dir))
+
+    with api.cd(api.env.proj_dir):
+        api.run('git clone {0} .'.format(api.env.repo))
+
+    # Install the dependencies.
+    with api.cd(api.env.proj_dir):
+        api.run('{0} install -r {1}'.format(api.env.venv_pip,
+                                            os.path.join(api.env.proj_dir,
+                                                         'requirements.txt')))
 
 
 @api.task
