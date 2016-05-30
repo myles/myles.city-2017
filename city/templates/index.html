@@ -33,7 +33,7 @@
 {% block content %}
     <div class="post-list">
         {% for entry in entries %}
-        <div class="post {% if entry.image %}post--cover{% else %}post--no-cover{% endif %}" {% if entry.image %}style="background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url({{ entry.image }})"{% endif %}>
+        <div class="post {% if entry.image %}post--cover{% else %}post--no-cover{% endif %}"{% if entry.image %} data-src="{{ entry.image }}"{% endif %}>
             <a href="{{ entry.link }}" class="post__link">
                 <h2 class="post__title">{{ entry.title }}</h2>
                 <ul class="post__meta">
