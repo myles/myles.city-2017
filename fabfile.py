@@ -71,7 +71,7 @@ def update_code():
     with api.cd(api.env.proj_dir):
         api.run('git reset --hard HEAD')
         api.run('git checkout {0}'.format(api.env.branch))
-        api.run('git pull {0} {1}'.format(api.env.remote, api.env.remote))
+        api.run('git pull {0} {1}'.format(api.env.remote, api.env.branch))
 
 
 @api.task
@@ -103,7 +103,7 @@ def ship_it():
         abort('There are unchecked files.')
 
     # Push the repo to the remote
-    api.local('git push {0} {1}'.format(api.env.remote, api.env.remote))
+    api.local('git push {0} {1}'.format(api.env.remote, api.env.branch))
 
     # The deploy tasks
     update_code()
