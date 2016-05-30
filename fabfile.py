@@ -19,6 +19,10 @@ api.env.venv_dir = os.path.join(api.env.root_dir, 'venv')
 api.env.venv_python = os.path.join(api.env.venv_dir, 'bin/python')
 api.env.venv_pip = os.path.join(api.env.venv_dir, 'bin/pip')
 
+# Git Bullshit
+api.env.remote = 'origin'
+api.env.branch = 'master'
+
 
 @api.task
 def setup():
@@ -61,19 +65,19 @@ def python_version():
 @api.task
 def update_code():
     """
-    Update to the latest version of the code.
+    Update to the latest version of the code and clear all server side
+    changes.
     """
     with api.cd(api.env.proj_dir):
-        # TODO `master` and `origin` should be in the environment variables.
         api.run('git reset --hard HEAD')
-        api.run('git checkout {0}'.format('master'))
-        api.run('git pull {0} {1}'.format('origin', 'master'))
+        api.run('git checkout {0}'.format(api.env.branch))
+        api.run('git pull {0} {1}'.format(api.env.remote, api.env.remote))
 
 
 @api.task
 def pip_upgrade():
     """
-    Upgrade the third party Python libraries.
+    Upgrade the Python libraries.
     """
     with api.cd(api.env.proj_dir):
         api.run('{0} install --upgrade -r '
@@ -92,24 +96,27 @@ def freeze_site():
 
 @api.task
 def ship_it():
-    api.local('git push {0} {1}'.format('origin', 'master'))
-
+    # Check to make sure that there isn't any unchecked files
     git_status = api.local('git status --porcelain', capture=True)
 
     if git_status:
-        abort('Check in the unchecked files.')
+        abort('There are unchecked files.')
 
-    puts('Hi!')
+    # Push the repo to the remote
+    api.local('git push {0} {1}'.format(api.env.remote, api.env.remote))
 
-    # update_code()
-    # pip_upgrade()
-    # freeze_site()
-    # puts("              |    |    | ")
-    # puts("             )_)  )_)  )_) ")
-    # puts("            )___))___))___)\ ")
-    # puts("           )____)____)_____)\\ ")
-    # puts("         _____|____|____|____\\\__ ")
-    # puts("---------\                   /--------- ")
-    # puts("  ^^^^^ ^^^^^^^^^^^^^^^^^^^^^ ")
-    # puts("    ^^^^      ^^^^     ^^^    ^^ ")
-    # puts("         ^^^^      ^^^ ")
+    # The deploy tasks
+    update_code()
+    pip_upgrade()
+    freeze_site()
+
+    # Draw a ship
+    puts("              |    |    | ")
+    puts("             )_)  )_)  )_) ")
+    puts("            )___))___))___)\ ")
+    puts("           )____)____)_____)\\ ")
+    puts("         _____|____|____|____\\\__ ")
+    puts("---------\                   /--------- ")
+    puts("  ^^^^^ ^^^^^^^^^^^^^^^^^^^^^ ")
+    puts("    ^^^^      ^^^^     ^^^    ^^ ")
+    puts("         ^^^^      ^^^ ")
