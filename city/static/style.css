@@ -2,6 +2,24 @@ body {
   padding-top: 70px;
 }
 
+@media all and (max-width: 1200px) {
+  body {
+    font-size: 1.5rem;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  body {
+    font-size: 1.2rem;
+  }
+}
+
+@media all and (max-width: 500px) {
+  body {
+    font-size: 0.8.rem;
+  }
+}
+
 .post-list {
   
 }
