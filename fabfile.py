@@ -1,7 +1,7 @@
 import os.path
 
 from fabric import api
-from fabric.utils import puts
+from fabric.utils import puts, abort
 
 api.env.hosts = ['bear']
 api.env.use_ssh_config = True
@@ -95,8 +95,11 @@ def ship_it():
     api.local('git push {0} {1}'.format('origin', 'master'))
 
     git_status = api.local('git status --porcelain', capture=True)
-    
-    print(git_status)
+
+    if git_status:
+        abort('Check in the unchecked files.')
+
+    puts('Hi!')
 
     # update_code()
     # pip_upgrade()
