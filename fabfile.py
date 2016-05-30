@@ -92,15 +92,21 @@ def freeze_site():
 
 @api.task
 def ship_it():
-    update_code()
-    pip_upgrade()
-    freeze_site()
-    puts("              |    |    | ")
-    puts("             )_)  )_)  )_) ")
-    puts("            )___))___))___)\ ")
-    puts("           )____)____)_____)\\ ")
-    puts("         _____|____|____|____\\\__ ")
-    puts("---------\                   /--------- ")
-    puts("  ^^^^^ ^^^^^^^^^^^^^^^^^^^^^ ")
-    puts("    ^^^^      ^^^^     ^^^    ^^ ")
-    puts("         ^^^^      ^^^ ")
+    api.local('git push {0} {1}'.format('origin', 'master'))
+
+    git_status = api.local('git status --porcelain', capture=True)
+    
+    print(git_status)
+
+    # update_code()
+    # pip_upgrade()
+    # freeze_site()
+    # puts("              |    |    | ")
+    # puts("             )_)  )_)  )_) ")
+    # puts("            )___))___))___)\ ")
+    # puts("           )____)____)_____)\\ ")
+    # puts("         _____|____|____|____\\\__ ")
+    # puts("---------\                   /--------- ")
+    # puts("  ^^^^^ ^^^^^^^^^^^^^^^^^^^^^ ")
+    # puts("    ^^^^      ^^^^     ^^^    ^^ ")
+    # puts("         ^^^^      ^^^ ")
